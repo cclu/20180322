@@ -51,10 +51,10 @@ if (isDev) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin()
     ])
-  });
+  })
 } else {
   config = merge(baseConfig, {
-    entry:{
+    entry: {
       app: path.join(__dirname, '../client/index.js'),
       vendor: ['vue']
     },
