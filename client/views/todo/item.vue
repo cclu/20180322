@@ -1,6 +1,6 @@
 <template>
   <div :class="['todo-item',todo.completed ? 'completed': '']">
-    <input 
+    <input
       type="checkbox"
       class="toggle"
       v-model="todo.completed"
@@ -29,23 +29,23 @@ export default {
    .todo-item {
     position relative
     background-color #fff
-    font-size 24px 
+    font-size 24px
     border-bottom 1px solid rgba(0,0,0,.06)
-    
+
     &:hover{
        .destory:after{
         content 'x'
       }
     }
-  
+
     label{
       white-space pre-line
       word-break break-all
-      padding 15px 60px 15px 15px 
-      margin-left 45px 
+      padding 15px 60px 15px 15px
+      margin-left 45px
       display block
       line-height 1.2
-      transition color .4s 
+      transition color .4s
     }
     &.completed{
       label {
@@ -60,7 +60,7 @@ export default {
       }
   .toggle{
     text-align center
-    width 40px 
+    width 40px
     height 40px
     position absolute
     top 0
@@ -69,7 +69,7 @@ export default {
     border none
     appearance none
     outline none
-    padding-left 5px 
+    padding-left 5px
     cursor pointer
     &:after{
       content url('../../assets/images/round.svg')
@@ -97,4 +97,4 @@ export default {
     outline none
   }
  </style>
- 
+

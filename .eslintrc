@@ -1,7 +1,13 @@
 {
+  "env": {
+    "browser": true
+  },
   "extends": "standard",
   "plugins": [
     "html"
   ],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "no-new": "off"
+  }
 }
