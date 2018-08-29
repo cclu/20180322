@@ -3,9 +3,9 @@ const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const ExtractPlugin = require('extract-text-webpack-plugin')
 const baseConfig = require('./webpack.config.base')
-const merge = require("webpack-merge")
+const merge = require('webpack-merge')
 
-const isDev = process.env.NODE_DEV === "development"
+const isDev = process.env.NODE_DEV === 'development'
 
 const defaultPlugin = [
   new webpack.DefinePlugin({
@@ -13,21 +13,26 @@ const defaultPlugin = [
       NODE_DEV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, 'template.html')
+  })
 ]
 const devSever = {
-  port: '8080',
+  port: 9000,
   host: '0.0.0.0',
   overlay: { // webpack编译出现错误，则显示到网页上
     error: true
   },
-  hot: true
+  historyApiFallback: {
+    disableDotRule: true
+  },
+  inline: true
 }
 
 let config
 
 if (isDev) {
-  //开发环境
+  // 开发环境
   config = merge(baseConfig, {
     // devtool: '#cheap-module-eval-source-map',
     module: {
@@ -101,7 +106,7 @@ if (isDev) {
       },
       runtimeChunk: true
     }
-  });
+  })
 }
 
 module.exports = config

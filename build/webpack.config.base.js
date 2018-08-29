@@ -1,16 +1,17 @@
 
-//共同的配置
+// 共同的配置
 const path = require('path')
-const createVueloaderOptions = require('./vue-loader.config')
+const createVueLoaderOptions = require('./vue-loader.config')
 
 const isDev = process.env.NODE_ENV === 'development'
 const config = {
-  mode: process.env.NODE_ENV || 'prodction', //
+  mode: process.env.NODE_ENV || 'production', //
   target: 'web',
   entry: path.join(__dirname, '../client/index.js'),
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -18,12 +19,12 @@ const config = {
         test: /\.(vue|js|jsx)$/,
         loader: "eslint-loader",
         exclude: /node_modules/,
-        enforce: 'pre' //预处理  post 在之前或之后
+        enforce: 'pre' // 预处理  post 在之前或之后
       },
       {
         test: /.vue$/,
-        loader: "vue-loader",
-        options: createVueloaderOptions(isDev)
+        loader: 'vue-loader',
+        options: createVueLoaderOptions(isDev)
       },
       {
         test: /\.jsx$/,
@@ -37,7 +38,7 @@ const config = {
       {
         test: /\.(png|gif|jpg|jpeg|svg)$/,
         use: [{
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
             limit: 1024,
             name: 'resource/[path][name].[hash:8].[ext]'

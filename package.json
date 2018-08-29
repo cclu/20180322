@@ -11,13 +11,14 @@
     "lint": "eslint --ext .js --ext .vue --ext .jsx client/",
     "lint-fix": "eslint --fix --ext .js --ext .vue --ext .jsx client/",
     "precommit": "npm run lint-fix",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config  build/webpack.config.client.js",
-    "practice": "cross-env NODE_ENV=development webpack-dev-server --config  build/webpack.config.practice.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "practice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.practice.js"
   },
   "author": "clue",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

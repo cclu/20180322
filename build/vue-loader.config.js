@@ -1,8 +1,8 @@
 
 module.exports = (isDev) => {
   return {
-    preserveWhitepace: true,
-    extractCSS: !isDev ,//是否把vue中的css打包 
+    preserveWhitespace: true,
+    extractCSS: !isDev, // 是否把 vue 中的 css 打包
     cssModules: {
       localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
       camelCase: true
